@@ -13,13 +13,15 @@ class LoginScreen extends Component {
       body: formData
     })
       .then(res => {
-        Alert.alert(JSON.stringify(res));
+        // uncomment below if you want to see the result as a popup
+        // Alert.alert(JSON.stringify(res));
+
         if (res.ok) {
           return res.json().then(result => {
             this.props.navigator.push({
               screen: "HomeScreen",
               title: "Home",
-              passProps: { result }
+              passProps: { result: JSON.stringify(result) }
             });
           });
         }

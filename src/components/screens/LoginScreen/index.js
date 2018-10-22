@@ -7,12 +7,10 @@ class LoginScreen extends Component {
     const formData = new FormData();
     formData.append("user", "test");
     formData.append("password", "test");
-    // formData.append("tokenType", "token");
 
     fetch("http://headers.jsontest.com/", {
       method: "POST",
-      body: formData,
-      credentials: "omit"
+      body: formData
     })
       .then(res => {
         Alert.alert(JSON.stringify(res));
